@@ -30,8 +30,13 @@ void print(node *head)
     return;
 }
 
-void insert_1(node *head, int d)
+void insert_1(node *&head, int d)
 {
+    if (head == nullptr)
+    {
+        head = new node(d);
+        return;
+    }
     node *temp = new node(d);
     if (head->next == nullptr)
     {
