@@ -1,6 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
-
+// insert element at the end of doubly list.
 class node
 {
 public:
@@ -14,7 +14,6 @@ public:
         next = nullptr;
     }
 };
-
 void print(node *head)
 {
     if (head == nullptr)
@@ -31,20 +30,17 @@ void print(node *head)
     return;
 }
 
-node *inser_1(node *&head, int d)
+void insert_1(node *head, int d)
 {
-    if (head == nullptr)
-    {
-        head = new node(d);
-        return head;
-    }
     node *temp = new node(d);
-    head->prev = temp;
-    temp->next = head;
-    return temp;
+    if (head->next == nullptr)
+    {
+        head->next = temp;
+        return;
+    }
+    insert_1(head->next, d);
 }
-// this is how we can insert element at head of
-// doubly linked list.
+// inserting last element at end of the doubly list.
 
 int main()
 {
@@ -56,6 +52,6 @@ int main()
     one->next = two;
     two->prev = one;
     print(head);
-    head = inser_1(head, 678);
+    insert_1(head, 999);
     print(head);
 }

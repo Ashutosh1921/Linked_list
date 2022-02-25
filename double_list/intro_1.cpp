@@ -14,7 +14,7 @@ public:
         next = nullptr;
     }
 };
-
+// this is how we create the
 int main()
 {
     node *head = new node(12);
